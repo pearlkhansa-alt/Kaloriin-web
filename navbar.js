@@ -5,7 +5,7 @@ const mobileMenu = document.getElementById("mobile-menu");
 
 let ticking = false;
 
-// Scroll navbar
+// Scroll navbar effect
 window.addEventListener("scroll", () => {
   if (!ticking) {
 
@@ -19,13 +19,11 @@ window.addEventListener("scroll", () => {
           "shadow-lg",
           "translate-y-1",
 
-          // desktop only
           "md:max-w-[1100px]",
           "md:mx-auto",
           "md:mt-2",
           "md:rounded-full",
 
-          // mobile tetap full
           "border-b",
           "border-gray-100"
         );
@@ -58,4 +56,50 @@ window.addEventListener("scroll", () => {
 // Mobile menu
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
+});
+
+
+// ACTIVE NAVBAR
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting) {
+
+        navLinks.forEach((link) => {
+
+          link.classList.remove(
+            "text-orange-500",
+            "font-semibold"
+          );
+
+          link.classList.add(
+            "text-gray-500"
+          );
+
+          if (
+            link.getAttribute("href") === `#${entry.target.id}`
+          ) {
+
+            link.classList.remove("text-gray-500");
+
+            link.classList.add(
+              "text-orange-500",
+              "font-semibold"
+            );
+          }
+        });
+      }
+    });
+  },
+  {
+    threshold: 0.5,
+  }
+);
+
+sections.forEach((section) => {
+  observer.observe(section);
 });
