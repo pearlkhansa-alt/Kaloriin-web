@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makan Sehat</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- TAILWIND CSS -->
+   <link rel="stylesheet" href="./src/output.css">
+   <link rel="stylesheet" href="./src/input.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+       rel="stylesheet" />
+    
+    
+</head>
+<body>
+   
+   <!-- NAVBAR -->
+    <nav class=" top-0 left-0 w-full z-50">
+        <div id="nav-wrapper" class="transition-all duration-500 w-full px-4 md:px-6 py-3">
+
+            <div class="flex items-center justify-between h-[56px]">
+
+                <!-- Logo -->
+                <div class="font-semibold text-xl text-green-700">
+                    Kalori.<span class="text-green-700">in</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-600">
+                    <a href="#" class="text-green-700 hover:text-green-600 transition">
+                        Beranda
+                    </a>
+                    <a href="#" class="hover:text-green-600 transition">
+                        Fitur
+                    </a>
+                    <a href="#" class="hover:text-green-600 transition">
+                        Testimoni
+                    </a>
+                    <a href="#" class="hover:text-green-600 transition">
+                        Tentang
+                    </a>
+                </div>
+
+                <!-- Right -->
+                <div class="flex items-center gap-2">
+
+                    <!-- Desktop CTA (HILANG DI MOBILE) -->
+                    <button
+                        class="hidden md:block bg-green-700 text-white text-sm px-5 py-2 rounded-full hover:bg-green-800 transition">
+                        Coba Sekarang!
+                    </button>
+
+                    <!-- Hamburger -->
+                    <button id="menu-btn"
+                        class="md:hidden w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center active:scale-95 transition text-lg">
+                        ☰
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-3 bg-white/95 backdrop-blur-xl border border-gray-100 rounded-[28px] p-5 shadow-xl">
+
+                <div class="flex flex-col gap-1 text-sm font-medium text-gray-700">
+
+                    <a href="#" class="px-4 py-3 rounded-2xl hover:bg-green-50 transition">
+                        Beranda
+                    </a>
+
+                    <a href="#" class="px-4 py-3 rounded-2xl hover:bg-green-50 transition">
+                        Fitur
+                    </a>
+
+                    <a href="#" class="px-4 py-3 rounded-2xl hover:bg-green-50 transition">
+                        Testimoni
+                    </a>
+
+                    <a href="#" class="px-4 py-3 rounded-2xl hover:bg-green-50 transition">
+                        Tentang
+                    </a>
+
+                </div>
+
+                <!-- CEK KALORI DI DALAM MENU -->
+                <button
+                    class="w-full mt-4 bg-green-700 text-white py-3 rounded-2xl font-semibold hover:bg-green-800 transition">
+                    Cek Kalori
+                </button>
+            </div>
+
+        </div>
+    </nav>
+   <!-- Navbar End -->
+
+    <!-- main -->
+    <div class=" mx-auto  px-10 pysm:px-6 lg:px-10 lg:py-5">
+
+        <div class=" mx-auto px-6 lg:px-10 pt-36 pb-20">   
+            <div class="grid lg:grid-cols-2 gap-14 items-center bg-[#36775D] p-10 rounded-2xl ">
+                <!-- Left -->
+                <div>
+
+                    <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        Rekomendasi Makanan Sehat
+                    </span>
+
+                    <h1 class="mt-6 text-5xl text-white lg:text-6xl font-bold leading-tight">
+                        Makan Pintar <br>
+                        <span class="">
+                            Tanpa Takut Kalori
+                        </span>
+                    </h1>
+
+                    <p class="mt-5 text-lg text-gray-300 leading-relaxed max-w-xl">
+                        Cari makanan favoritmu dan temukan versi yang lebih sehat,
+                        lebih seimbang, dan tetap enak untuk tubuhmu.
+                    </p>
+                </div>
+
+                <!-- Right -->
+                <div class="relative flex justify-center items-end">
+
+                    <!-- Blur -->
+                    <div class="absolute w-96 h-96"></div>
+                        <!-- Image -->
+                        <img src="asset/imgfitur2.png"class="hidden md:flex md:translate-y-10 relative lg:translate-y-18 w-125  lg:w-155  ">
+                </div>
+            </div>
+        </div>
+        
+        <!-- FILTER -->
+    <div class="mt-10 border border-gray-300 rounded-2xl bg-white p-2 overflow-x-auto">
+
+        <div class="flex sm:grid sm:grid-cols-5 gap-2 min-w-max sm:min-w-0 text-center text-gray-600 font-semibold">
+
+            <button 
+            class="filter-btn active-filter px-5 py-3 rounded-xl bg-green-700 text-white transition whitespace-nowrap"
+            data-filter="all">
+                Semua
+            </button>
+
+            <button 
+            class="filter-btn px-5 py-3 rounded-xl hover:bg-gray-100 transition whitespace-nowrap"
+            data-filter="sarapan">
+                Sarapan
+            </button>
+
+            <button 
+            class="filter-btn px-5 py-3 rounded-xl hover:bg-gray-100 transition whitespace-nowrap"
+            data-filter="siang">
+                Makan Siang
+            </button>
+
+            <button 
+            class="filter-btn px-5 py-3 rounded-xl hover:bg-gray-100 transition whitespace-nowrap"
+            data-filter="malam">
+                Makan Malam
+            </button>
+
+            <button 
+            class="filter-btn px-5 py-3 rounded-xl hover:bg-gray-100 transition whitespace-nowrap"
+            data-filter="hidangan">
+                Hidangan
+            </button>
+
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- GRID -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 py-20">
+
+    <!-- CARD 1 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="hidangan">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/hidangan1.png"
+            alt="Risol"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Mie ayam
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          330 kcal
+        </p>
+
+      </div>
+
+      <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200  hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Resep
+        </button>
+      </div>
+        
+
+
+    </div>
+
+
+    <!-- CARD 2 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="sarapan">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/sarapan1.png"
+            alt="Pastel"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Nasi Uduk
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          500 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200  hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- CARD 3 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="siang">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/makansiang1.png"
+            alt="Ayam"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Nasi Ayam
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          400 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200  hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="siang">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/makanmalam1.png"
+            alt="Ayam"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Spagetti
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          550 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200 hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="siang">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/gepsing.png"
+            alt="Ayam"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Ayam Geprek
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          600 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200  hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="sarapan">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/lontongsar.png"
+            alt="Ayam"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Lontong sayur
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          570 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200  hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="hidangan">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/pecelmal.png"
+            alt="Ayam"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Pecel
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          400 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200  hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+
+
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="food-card bg-white rounded-3xl p-5 shadow-md hover:shadow-xl hover:-translate-y-2 transition duration-300"
+        data-category="malam">
+
+      <div class="flex justify-center mb-5">
+
+        <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden">
+
+          <img 
+            src="asset/sotomal.png"
+            alt="Ayam"
+            class="w-full h-full object-cover"
+          >
+
+        </div>
+
+      </div>
+
+      <div class="text-center">
+
+        <h2 class="text-lg sm:text-xl font-bold text-gray-800">
+          Soto
+        </h2>
+
+        <p class="text-gray-500 text-base sm:text-lg mt-1">
+          400 kcal
+        </p>
+
+      </div>
+
+       <div class="mt-4">
+        <button  onclick="window.location.href='detailmakan.html'" class="bg-white border border-gray-200 hover:border-green-700 hover:text-green-600 text-gray-700 px-5 py-3 rounded-xl font-semibold flex items-center gap-2 transition duration-200 shadow-sm">
+      <!-- Icon Menu -->
+      <svg xmlns="http://www.w3.org/2000/svg" 
+          class="w-5 h-5" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor">
+          <path stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2" 
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      Lihat Menu
+        </button>
+      </div>
+    </div>
+
+   
+
+</div>
+
+  <div class="">
+    <button 
+    onclick="window.location.href='mainfitur.html'"
+    class="bg-green-800 hover:bg-black-800 text-white px-6 py-3 rounded-2xl font-semibold flex items-center gap-2 transition duration-200 shadow-lg hover:scale-105">
+    <!-- Icon Fire -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+        class="w-5 h-5" 
+        fill="none" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor">
+        <path stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    </svg>
+
+    Yuk Cek Kalori Piringmu
+</button>
+  </div>
+
+
+
+
+<!-- ACTIVE BUTTON STYLE -->
+<style>
+.active-filter{
+    background-color: #15803d;
+    color: white;
+}
+</style>
+    </div>
+
+ 
+    <script src="main.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>
